@@ -15,7 +15,8 @@ steps = [
                 title text not null,
                 description text,
                 course_id uuid constraint fk_lectures_course
-                                 references courses(id),
+                                 references courses(id)
+                                 on delete cascade,
                 starts_at timestamp
             );
         """,
