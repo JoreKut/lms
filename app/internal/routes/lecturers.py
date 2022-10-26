@@ -33,7 +33,7 @@ async def create_lectures(
     return await lecturer_service.create_lecturer(cmd)
 
 
-@router.post(
+@router.get(
     "/get",
     description="Get all lecturers",
     response_model=List[LecturerModel],
