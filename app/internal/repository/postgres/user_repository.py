@@ -40,8 +40,6 @@ class UserRepository:
                 where {where_filters}
             """
 
-            print(q % cmd.dict())
-
             await cur.execute(q, cmd.dict())
 
             resp = await cur.fetchone()
