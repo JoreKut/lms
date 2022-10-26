@@ -10,8 +10,11 @@ steps = [
     step(
         """
             create table if not exists courses_lecturers(
-                course_id uuid references courses(id) not null,
-                lecturer_id uuid references lecturers(id) not null
+                course_id uuid references courses(id)
+                    on delete cascade,
+                lecturer_id uuid 
+                    references lecturers(id)
+                    on delete cascade
             )
         """
     )

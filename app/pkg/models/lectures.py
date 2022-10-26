@@ -16,7 +16,7 @@ class LectureModel(BaseLecture):
     created_at: datetime.datetime
     title: str
     description: Optional[str]
-    starts_at: datetime.datetime
+    starts_at: Optional[datetime.datetime]
 
 
 class DeleteLectureByIdCommand(BaseLecture):

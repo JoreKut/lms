@@ -1,9 +1,10 @@
-from app.internal.repository import Repositories
+from app.internal.repository import Repositories, LecturerRepository
 from dependency_injector import containers, providers
 from .user_service import UserService
 from .auth_service import AuthService
 from .lecture_service import LectureService, LectureRepository
 from .course_service import CourseService, CourseRepository
+from .lecturer_service import LecturerService
 
 
 class Services(containers.DeclarativeContainer):
@@ -20,6 +21,10 @@ class Services(containers.DeclarativeContainer):
     lecture_service = providers.Factory(
         LectureService,
         lecture_repository=LectureRepository
+    )
+    lecturer_service = providers.Factory(
+        LecturerService,
+        lecturer_repository=LecturerRepository
     )
     course_service = providers.Factory(
         CourseService,

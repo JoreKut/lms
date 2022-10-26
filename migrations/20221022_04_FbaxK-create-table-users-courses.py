@@ -13,9 +13,11 @@ steps = [
                 id uuid primary key default gen_random_uuid(),
                 created_at timestamp default current_timestamp,
                 user_id uuid constraint fk_user
-                        references users(id),
+                        references users(id)
+                        on delete cascade,
                 course_id uuid constraint fk_users_course
                         references courses(id)
+                        on delete cascade 
             );
         """,
         """

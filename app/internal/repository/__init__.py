@@ -6,6 +6,7 @@ from .postgres import (
     RefreshTokenRepository,
     LectureRepository,
     CourseRepository,
+    LecturerRepository
 )
 
 
@@ -22,6 +23,11 @@ class Repositories(containers.DeclarativeContainer):
     lecture_repository = providers.Factory(
         LectureRepository
     )
+
+    lecturer_repository = providers.Factory(
+        LecturerRepository
+    )
+
     course_repository = providers.Factory(
         CourseRepository
     )

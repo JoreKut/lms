@@ -28,7 +28,7 @@ async def create_lectures(
     cmd: CreateLectureCommand,
     lecture_service: LectureService = Depends(Provide[Services.lecture_service])
 ):
-    return lecture_service.create_lecture(cmd)
+    return await lecture_service.create_lecture(cmd)
 
 
 @router.post(
@@ -42,7 +42,7 @@ async def read_lectures_by_course(
     course_id: UUID,
     lecture_service: LectureService = Depends(Provide[Services.lecture_service])
 ):
-    return lecture_service.read_lectures(
+    return await lecture_service.read_lectures(
         ReadLectureByCourseId(
             course_id=course_id
         )

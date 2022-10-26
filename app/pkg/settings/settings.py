@@ -14,12 +14,6 @@ class Settings(BaseSettings):
     JWT_KEY: str
     JWT_ALGORITHM: str
 
-    PORT: str
-    SMTP_SERVER: str
-    SENDER_EMAIL: str
-    EMAIL_PASSWORD: str
-
-
 @lru_cache()
 def get_settings(env_file: str = '.env') -> Settings:
     return Settings(_env_file=find_dotenv(env_file))

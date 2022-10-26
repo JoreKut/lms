@@ -4,10 +4,12 @@ from . import (
     course,
     lecture,
     users,
+    lecturers
 )
 
 __routes__ = Routes(
     routers=(
+        lecturers.router,
         auth.router,
         course.router,
         lecture.router,

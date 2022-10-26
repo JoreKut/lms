@@ -11,13 +11,14 @@ class LectureRepository:
     @collect_response(nullable=True)
     async def create_lecture(cmd: CreateLectureCommand) -> LectureModel:
         query = """
-                insert into lectures(title, description, course_id)
-                values(%(title)s, %(description)s, %(course_id)s)
+                insert into lectures(title, description, course_id, starts_at)
+                values(%(title)s, %(description)s, %(course_id)s, %(starts_at)s)
                 returning 
                     id,
                     created_at,
                     title,
                     description,
+                    starts_at,
                     course_id;
             """
 

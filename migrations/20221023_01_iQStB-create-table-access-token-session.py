@@ -14,6 +14,7 @@ steps = [
                 user_id uuid not null
                     constraint fk_access_token_user
                         references users(id)
+                        on DELETE cascade
             );
         """,
         """
