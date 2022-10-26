@@ -28,18 +28,11 @@ class UserService:
     async def read_user_by_identifier(
         self,
         cmd: ReadUserByIdentifier
-    ) -> User:
+    ) -> UserModel:
 
         user: UserModel = await self.user_repository.read_user_by_identifier(cmd)
 
-        return User(
-            id=user.id,
-            username=user.username,
-            phone=user.phone,
-            email=user.email,
-            firstname=user.firstname,
-            lastname=user.lastname
-        )
+        return user
 
     async def read_user_by_phone(
         self,

@@ -82,7 +82,7 @@ class ReadLecturesByDate(BaseApiModel):
 
 class ReadUserByIdentifier(BaseUser):
     email: Optional[str]
-    phone: Optional[str]
+    username: Optional[str]
 
 
 class ReadUserByPhoneCommand(BaseUser):

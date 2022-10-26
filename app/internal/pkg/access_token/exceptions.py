@@ -49,4 +49,4 @@ class InvalidRefreshSession(BaseApiException):
 
 class NonUniqueUser(BaseApiException):
     status_code = status.HTTP_406_NOT_ACCEPTABLE  # Think
-    message = "There is a user with the same email address"
+    message = "There is a user with the same email or username"

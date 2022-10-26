@@ -10,7 +10,7 @@ class UserRepository:
 
     @staticmethod
     def __build_where_filter(cmd: BaseApiModel) -> str:
-        filters = [f"{v.name}=%({v.name})s" for v in cmd.__fields__.values() if v.required]
+        filters = [f"{v.name}=%({v.name})s" for v in cmd.__fields__.values() if not v.required]
         return ' or '.join(filters)
 
     @staticmethod
@@ -29,7 +29,7 @@ class UserRepository:
 
             return resp
 
-    @collect_response
+    @collect_response(nullable=True)
     async def read_user_by_identifier(self, cmd: ReadUserByIdentifier) -> UserModel:
         where_filters = self.__build_where_filter(cmd)
 

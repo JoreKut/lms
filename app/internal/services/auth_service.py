@@ -108,9 +108,11 @@ class AuthService:
         self,
         cmd: RegistrationForm
     ) -> Auth:
-        user = await self.user_service.read_user_by_email(
-            ReadUserByEmailCommand(
-                email=cmd.email
+
+        user = await self.user_service.read_user_by_identifier(
+            ReadUserByIdentifier(
+                email=cmd.email,
+                username=cmd.username
             )
         )
 
@@ -125,9 +127,10 @@ class AuthService:
         # If user in DB -> create ACCESS\REFRESH pair
         # Else info about it
 
-        user = await self.user_service.read_user_by_email(
-            ReadUserByEmailCommand(
-                email=cmd.email
+        user = await self.user_service.read_user_by_identifier(
+            ReadUserByIdentifier(
+                email=cmd.email,
+                username=cmd.username
             )
         )
 
